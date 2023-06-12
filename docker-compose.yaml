@@ -1,0 +1,22 @@
+version: '3.0'
+
+services:
+    api-gateway-service:
+        build: ./api-gateway
+        env_file:
+            -   ./api-gateway/.env
+        ports:
+            - "9000:9000"
+        depends_on:
+            - api-gateway-database
+            - user-service
+            - sse-service
+        restart: unless-stopped
+    api-gateway-database:
+        image: redis
+        ports:
+            -   "6379:6379"
+networks:
+    default:
+        external:
+            name: red-net-network

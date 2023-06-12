@@ -1,0 +1,22 @@
+server:
+    port: 9000
+    error:
+        include-message: always
+        include-binding-errors: always
+spring:
+    data:
+        redis:
+            port: ${API_GATEWAY_DATABASE_PORT}
+            host: ${API_GATEWAY_DATABASE_HOST}
+RedNet:
+    app:
+        accessTokenCookieName: rednet-jwt-access
+        accessTokenExpirationMs: 1800000
+        accessTokenCookiePath: /api
+        accessTokenCookieExpirationMs: 1800000
+        refreshTokenCookieName: rednet-jwt-refresh
+        refreshTokenExpirationMs: 180000000
+        refreshTokenCookiePath: /api/auth
+        refreshTokenCookieExpirationMs: 180000000
+        jwt:
+            secretKey:  ${AUTH_JWT_SECRET_KEY}
