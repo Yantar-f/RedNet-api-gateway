@@ -18,8 +18,7 @@
 * HTTP POST /api/auth/resend-email-verification - resend email verification letter to activate account during registration
 
 ## Database Diagram
-in progress...
-<!-- (![database-diagram](api-gateway-database-diagram.png)) -->
+![database-diagram](api-gateway-database-diagram.png)
 
 ## Technology Stack
 * Business-logic server\
