@@ -134,7 +134,7 @@ public class JwtService {
     }
 
     public boolean isTokenInvalid(String token) {
-        return isTokenValid(token);
+        return !isTokenValid(token);
     }
 
 
