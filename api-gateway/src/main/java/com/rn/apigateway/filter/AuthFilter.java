@@ -24,7 +24,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 @Component
 public class AuthFilter implements Ordered, GlobalFilter {
@@ -118,12 +117,9 @@ public class AuthFilter implements Ordered, GlobalFilter {
                 }
             }
 
-            HashMap<String,Object> rolesClaims = new HashMap<>();
-            rolesClaims.put("roles", roles);
-
             String apiTokenCookie = new HttpCookie(apiTokenCookieName, apiTokenBuilder
                 .setSubject(userID)
-                .addClaims(rolesClaims)
+                .claim("roles", roles)
                 .setExpiration(new Date(System.currentTimeMillis() + apiTokenExpirationMs))
                 .compact()).toString();
 
