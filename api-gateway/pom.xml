@@ -5,8 +5,6 @@
                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -14,29 +12,26 @@
         <relativePath/>
     </parent>
 
-
-
     <groupId>com.rn</groupId>
     <artifactId>api-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>api-gateway</name>
     <description>api-gateway</description>
 
-
-
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>
     </properties>
-
-
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -54,8 +49,6 @@
         </dependency>
     </dependencies>
 
-
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -68,11 +61,8 @@
         </dependencies>
     </dependencyManagement>
 
-
-
     <build>
-        <finalName>red-net-api-gateway</finalName>
-
+        <finalName>rednet-api-gateway</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -1,5 +1,5 @@
 server:
-    port: 8000
+    port: 8765
     error:
         include-message: always
         include-binding-errors: always
@@ -8,7 +8,7 @@ rednet:
         api-token-cookie-name: rednet-api-token
         api-token-expiration-ms: 1800000
         api-token-issuer: rednet-agw
-        api-token-secret-key: ${API_TOKEN_SECRET_KEY}
+        api-token-secret-key: 301RJdFDpzEchd3y+4O7GUl3Ade2PNyyDtUx76AdPWpe0uYUW47MON9jtEUOmod9
         access-token-cookie-name: rednet-access-token
-        access-token-secret-key: ${AUTH_TOKEN_SECRET_KEY}
+        access-token-secret-key: suF25ZudSgyzQSS9QgpaSyUt5XZZGtTayc22RlLe5IX1erTOz64mN5BarqeiPV2s
         auth-token-issuer: rednet-auth

@@ -17,7 +17,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpCookie;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -32,7 +31,6 @@ public class AuthFilter implements Ordered, GlobalFilter {
     private final JwtParser authTokenParser;
     private final String apiTokenIssuer;
     private final String apiTokenSecretKey;
-    private final JwtParser apiTokenParser;
 
 
     @Autowired
@@ -50,12 +48,6 @@ public class AuthFilter implements Ordered, GlobalFilter {
         this.authTokenCookieName = authTokenCookieName;
         this.apiTokenIssuer = apiTokenIssuer;
         this.apiTokenSecretKey = apiTokenSecretKey;
-
-        apiTokenParser = Jwts.parserBuilder()
-            .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(apiTokenSecretKey)))
-            .requireIssuer(apiTokenIssuer)
-            .setAllowedClockSkewSeconds(5)
-            .build();
 
         authTokenParser = Jwts.parserBuilder()
             .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(authTokenSecretKey)))

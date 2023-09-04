@@ -15,17 +15,9 @@ public class RoutingConfig {
     public RouteLocator routing(RouteLocatorBuilder builder) {
         return builder.routes()
             .route(r -> r
-                .path(
-                    "/api/auth/signup",
-                    "/api/auth/signin",
-                    "/api/auth/signout",
-                    "/api/auth/refresh-tokens",
-                    "/api/auth/verify-email",
-                    "/api/auth/resend-email-verification",
-                    "/api/auth/change-password")
+                .path("/api/auth/**")
                 .filters(f -> f.stripPrefix(2))
-                .uri("http://localhost:8001"))
+                .uri("lb://AUTH-MANAGEMENT-SERVICE"))
             .build();
     }
-
 }

@@ -4,10 +4,8 @@ services:
     api-gateway-service:
         container_name: red-net-api-gateway
         build: ./api-gateway
-        env_file:
-            - ./api-gateway/.env
         ports:
-            - "9000:9000"
+            - "8765:8765"
         restart: unless-stopped
         networks:
             - rednet-network
